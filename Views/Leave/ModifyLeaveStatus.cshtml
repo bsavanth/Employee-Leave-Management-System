@@ -1,0 +1,50 @@
+﻿@using LeaveManagement.ViewModels
+
+@model IEnumerable<EmployeeNameView>
+
+@{
+    ViewData["Title"] = "ModifyLeaveStatus";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Pending Leaves to handle</h1>
+<br />
+
+<table class="table table-active table-striped">
+
+
+    <tr>
+        
+        <td> Employee ID</td>
+        <td>Employee Name</td>
+        <td> No Of Days</td>
+        <td> From Date </td>
+        <td> To Date </td>
+        <td> Status </td>
+        <td> Remarks </td>
+        <td> Action </td>
+    </tr>
+
+    <tr><td><br /></td></tr>
+
+    @foreach (EmployeeNameView nm in Model)
+
+    {
+
+
+
+<tr>
+
+    <td> @nm.leave.EmpID</td>
+    <td>@nm.name</td>
+    <td> @nm.leave.NoOfDays</td>
+    <td> @nm.leave.FromDate.ToShortDateString() </td>
+    <td> @nm.leave.ToDate.Date.ToShortDateString() </td>
+    <td> @nm.leave.Status </td>
+    <td> @nm.leave.Remarks </td>
+    <td>@Html.ActionLink("Modify Status", "Edit", new { Id = nm.leave.LeaveID })</td>
+
+</tr>
+    }
+
+</table>

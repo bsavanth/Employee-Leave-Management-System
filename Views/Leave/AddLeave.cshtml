@@ -1,0 +1,65 @@
+﻿
+
+@using LeaveManagement.ViewModels
+@model EmployeeViewModel
+
+
+
+
+@{
+    ViewData["Title"] = "AddLeave";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>AddLeave</h1>
+
+<form asp-action="AddLeave">
+    <table>
+
+
+        <tr>
+            <td>
+                <label asp-for="leave.EmpID"></label>
+            </td>
+            <td>
+                <select asp-for="leave.EmpID"
+                        asp-items="@(new SelectList(Model.employees,"ID","ID"))"></select>
+            </td>
+        </tr>
+        <tr>
+
+        <tr>
+            <td>
+                <label asp-for="leave.FromDate"></label>
+            </td>
+            <td>
+                <input type="date" asp-for="leave.FromDate" placeholder="Select date" />
+                <span asp-validation-for="leave.FromDate"></span>
+            </td>
+        </tr>
+        <tr>
+
+
+
+
+        <tr>
+            <td>
+                <label asp-for="leave.ToDate"></label>
+            </td>
+            <td>
+                <input type="date" asp-for="leave.ToDate" placeholder="Select date" />
+                <span asp-validation-for="leave.ToDate"></span>
+            </td>
+        </tr>
+        <tr>
+
+
+            <td colspan="2">
+
+                <input type="submit" value="Add Leave" class="btn btn-info" />
+            </td>
+        </tr>
+    </table>
+
+    <a asp-controller="Employee" asp-action="Index" class="btn btn-info">Back to Index</a>
+</form>

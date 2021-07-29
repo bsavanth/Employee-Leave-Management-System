@@ -1,0 +1,56 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="~/css/loadpage.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+</head>
+<body>
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome to Employee Management System</h1>
+        <p class="lead">This website is designed for three roles Manager, Employee and IT Department</p>
+        <hr class="my-4">
+        <p>please select one of the following buttons from below based on your role</p>
+
+    </div>
+
+    <div class=" container w3-bar">
+        @using (Html.BeginForm("Index", "Employee", FormMethod.Post))
+        {
+
+            <!-- form here -->
+            <button id="bttn" type="submit" class="btn btn-secondary btn-lg btn-block">Employee</button>
+
+        }
+
+        @using (Html.BeginForm("Index", "Manager", FormMethod.Post))
+        {
+
+            <button id="bttn" type="submit" class="btn btn-secondary btn-lg btn-block">Manager</button>
+
+        }
+
+        @using (Html.BeginForm("Index", "IT", FormMethod.Post))
+        {
+
+            <button id="bttn" type="submit" class="btn btn-secondary btn-lg btn-block">IT Department</button>
+
+
+        }
+
+
+    </div>
+
+
+
+
+</body>
+</html>

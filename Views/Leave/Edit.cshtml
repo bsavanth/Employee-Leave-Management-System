@@ -1,0 +1,81 @@
+﻿
+
+@model Leave
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<form asp-action="Edit">
+
+
+    @Html.HiddenFor(leave => leave.LeaveID)
+    @Html.HiddenFor(leave => leave.EmpID)
+    @Html.HiddenFor(leave => leave.NoOfDays)
+    @Html.HiddenFor(leave => leave.FromDate)
+
+
+
+
+
+
+    <table class="table table-bordered">
+
+
+        <tr>
+            <td>
+                @Html.LabelFor(leave => leave.ToDate)
+            </td>
+
+            <td>
+                <input type="date" asp-for="ToDate" />
+                <span asp-validation-for="ToDate"></span>
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>
+
+                @Html.LabelFor(leave => leave.Status)
+
+
+            </td>
+
+            <td>
+                <label for="status">Approve</label>
+                <input type="radio" id="status" value='Approved' asp-for="Status">
+
+                <label for="status">Reject</label>
+                <input type="radio" id="status" value='Rejected' asp-for="Status">
+
+                <span asp-validation-for="Status"></span>
+
+            </td>
+        </tr>
+
+        <tr>
+            <td> @Html.LabelFor(leave => leave.Remarks)</td>
+            <td>
+                <input type="text" asp-for="Remarks" />
+                <span asp-validation-for="Remarks"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <input type="submit" value="Save" />
+            </td>
+        </tr>
+    </table>
+
+    <br /><br />
+
+    @Html.ActionLink("Back to Index", "Index")
+
+
+
+</form>
